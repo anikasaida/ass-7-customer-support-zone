@@ -1,16 +1,16 @@
-# React + Vite
+1.What is JSX, and why is it used?
+JSX is an acronym for JavaScript XML. JSX is a JavaScript syntax extension that allows developers to add HTML-like code to JavaScript files. JSX makes it easier to describe what the UI should look like in React. Instead of employing complex React.createElement() functions, developers can simply write markup which resembles HTML in appearance. It improves readability as well as being able to visualize the component structure easily. JSX is not native to browsers, hence, it is transpiled into standard JavaScript through tools like Babel. The main reason for the adoption of JSX is that it renders code more declarative, more readable, and allows HTML structure intermixing with dynamic JavaScript logic in a single place.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2.What is the difference between State and Props?
+In React, both State and Props are used to handle data, but they work differently. Props (short for properties) are read-only attributes that are passed from a parent component to a child component. They are used to send data or functions from one component to another and cannot be modified by the receiving component. On the other hand, State represents data that belongs to a specific component and can change over time. It is managed inside the component and can be updated using functions like setState() or the useState hook. In short, Props are used for passing data into a component, while State is used for managing data within a component.
 
-Currently, two official plugins are available:
+3.What is the useState hook, and how does it work?
+A built-in React hook called useState enables functional components to have and control their own state. State is typically only used by class components, but functional components can also dynamically store and update data by using hooks. An array containing the current state value and a function to update that state is returned by the useState() function. React re-renders the component to display the updated data when the update function is invoked. As an illustration, const [count, setCount] = useState(0); generates a state variable named count that is initialized with 0. Its value is then updated using setCount. Therefore, by re-rendering components whenever the state changes, useState aids in the creation of dynamic and interactive user interfaces.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+4.How can you share state between components in React?
+By default, state in React is local to a component. We can employ a number of strategies to share state among several components. Lifting state up is the most popular technique. This entails passing the necessary information or functions to its child components as props and shifting the state to the nearest common parent component. Using the Context API is an additional technique that allows global data (such as themes, authentication, or user information) to be shared across numerous components without requiring manual prop passing at each stage. To handle and share state effectively across the entire application, developers can also use state management libraries like Redux, MobX, or Recoil for larger applications.
 
-## React Compiler
+5.How is event handling done in React
+With a few significant exceptions, event handling in React is fairly similar to handling events in plain HTML. Event names in React are written in camelCase rather than lowercase (for instance, onClick rather than onclick). Additionally, functions rather than strings are passed to event handlers. Synthetic Events, a system used by React, makes sure that events function consistently in all browsers. You define a function and pass it to an event attribute in order to handle an event. Click Me, for instance, invokes the handleClick function each time the button is pressed. In React, event handling is crucial to creating interactive components because it makes user interactions dynamic, including responding to keystrokes, form submissions, and clicks.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

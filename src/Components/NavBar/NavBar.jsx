@@ -49,8 +49,8 @@ const NavBar = () => {
           </div>
           <a className="font-bold text-xl">CS-Ticketing System</a>
         </div>
-        <div className=" hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+        <div className="flex items-center">
+          <ul className="menu menu-horizontal px-1 hidden lg:flex">
             <li>
               <a>Home</a>
             </li>
