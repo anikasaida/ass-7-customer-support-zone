@@ -18,7 +18,7 @@ const TaskCard = ({
     removeTicket(task);
     setProgressCount(progressCount - 1);
     setResolvedCount(resolvedCount + 1);
-    
+
     setResolvedTask([...resolvedTask, task]);
     setTicketCard([...ticketCard, task]);
     removeTicketCard(task);
@@ -28,15 +28,21 @@ const TaskCard = ({
   return (
     <div
       key={task.id}
-      className=" bg-gray-100 p-3 mb-3 mt-5 rounded-lg shadow-md"
+      className="bg-gray-100 p-4 mb-6 sm:mb-8 md:mb-10 mt-5 rounded-lg shadow-md w-full"
     >
-      <h2 className="mb-2 font-medium text-lg">{task.title}</h2>
+      <h2 className="mb-3 font-semibold text-lg text-gray-800 break-words">
+        {task.title}
+      </h2>
       <button
         onClick={handleRemove}
-        className="bg-green-500 cursor-pointer text-white w-full py-1.5 font-semibold rounded-lg"
+        className="bg-green-500 hover:bg-green-600 transition-colors duration-200 text-white w-full py-2 font-medium rounded-md"
       >
         Complete
       </button>
+
+      
+        
+     
     </div>
   );
 };

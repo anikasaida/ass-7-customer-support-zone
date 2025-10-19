@@ -18,9 +18,9 @@ const Footer = () => {
         <div>
           <h6 className="text-white font-semibold mb-2">Company</h6>
           <ul className="space-y-1">
-            <li><a className="hover:text-white" href="#">About Us</a></li>
-            <li><a className="hover:text-white" href="#">Our Mission</a></li>
-            <li><a className="hover:text-white" href="#">Contact Sales</a></li>
+            <li><a className="hover:text-white" href="https://github.com/anikasaida">About Us</a></li>
+            <li><a className="hover:text-white" href="https://github.com/anikasaida">Our Mission</a></li>
+            <li><a className="hover:text-white" href="https://github.com/anikasaida">Contact Sales</a></li>
           </ul>
         </div>
 
@@ -28,9 +28,9 @@ const Footer = () => {
         <div>
           <h6 className="text-white font-semibold mb-2">Services</h6>
           <ul className="space-y-1">
-            <li><a className="hover:text-white" href="#">Products & Services</a></li>
-            <li><a className="hover:text-white" href="#">Customer Stories</a></li>
-            <li><a className="hover:text-white" href="#">Download Apps</a></li>
+            <li><a className="hover:text-white" href="https://github.com/anikasaida">Products & Services</a></li>
+            <li><a className="hover:text-white" href="https://github.com/anikasaida">Customer Stories</a></li>
+            <li><a className="hover:text-white" href="https://github.com/anikasaida">Download Apps</a></li>
           </ul>
         </div>
 
@@ -38,9 +38,9 @@ const Footer = () => {
         <div>
           <h6 className="text-white font-semibold mb-2">Information</h6>
           <ul className="space-y-1">
-            <li><a className="hover:text-white" href="#">Privacy Policy</a></li>
-            <li><a className="hover:text-white" href="#">Terms & Conditions</a></li>
-            <li><a className="hover:text-white" href="#">Join Us</a></li>
+            <li><a className="hover:text-white" href="https://github.com/anikasaida">Privacy Policy</a></li>
+            <li><a className="hover:text-white" href="https://github.com/anikasaida">Terms & Conditions</a></li>
+            <li><a className="hover:text-white" href="https://github.com/anikasaida">Join Us</a></li>
           </ul>
         </div>
 
@@ -70,8 +70,8 @@ const Footer = () => {
 
      
       <hr className="my-8 border-gray-700 max-w-[1200px] mx-auto" />
-      <div className="text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} CS — Ticket System. All rights reserved.
+      <div className="text-center text-sm text-gray-300">
+        © CS — Ticket System. All rights reserved.
       </div>
     </footer>
   );

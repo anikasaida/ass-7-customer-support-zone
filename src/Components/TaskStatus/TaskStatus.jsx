@@ -15,9 +15,7 @@ const TaskStatus = ({
   setTicketCard,
   removeTicketCard,
 }) => {
-  //   const ticketData = use(data);
-  //   console.log(taskStatus);
-
+  
   return (
     <div>
       {taskStatus.length === 0 ? (

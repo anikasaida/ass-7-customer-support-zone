@@ -11,7 +11,7 @@ import ResolvedStatus from './Components/ResolvedStatus/ResolvedStatus';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// ✅ Correct fetch path
+
 const fetchTicket = async () => {
   const res = await fetch("/ticketData.json");
   return res.json();

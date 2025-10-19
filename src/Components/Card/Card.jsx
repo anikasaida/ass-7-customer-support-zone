@@ -1,7 +1,6 @@
-import React, { use } from "react";
-import TaskStatus from "../TaskStatus/TaskStatus";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-
+import { FaRegCalendarAlt } from "react-icons/fa"; 
 const Card = ({
   fetchPromise,
   setProgressCount,
@@ -9,74 +8,64 @@ const Card = ({
   taskStatus,
   setTaskStatus,
 }) => {
-  const promiseData = use(fetchPromise);
-  // console.log(taskStatus);
+  const [promiseData, setPromiseData] = useState([]);
+
+  useEffect(() => {
+    fetchPromise.then((data) => {
+      setPromiseData(data);
+    });
+  }, [fetchPromise]);
+
+  const handleCardClick = (data) => {
+    const isAlreadyAdded = taskStatus.some((item) => item.id === data.id);
+    if (isAlreadyAdded) {
+      toast.warn("Ticket already added in Progress!");
+      return;
+    }
+
+    toast("Ticket Added to Progress!");
+    setProgressCount(progressCount + 1);
+    setTaskStatus([...taskStatus, data]);
+  };
 
   return (
-    <div className="grid grid-cols-2 gap-4 mt-4 ">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mb-8">
       {promiseData.map((data) => (
         <div
-          onClick={() => {
-            toast("Tickets Added in Progress!");
-            setProgressCount((progressCount += 1));
-            {
-              setTaskStatus([...taskStatus, data]);
-            }
-
-            // console.log(data);
-          }}
+          onClick={() => handleCardClick(data)}
           key={data.id}
+          className="cursor-pointer"
         >
-          <div className="h-[150px] cursor-pointer bg-gray-100 rounded-lg drop-shadow-lg">
+          <div className="h-[150px] bg-gray-100 rounded-lg drop-shadow-md hover:shadow-lg transition duration-300">
             <div className="flex justify-between p-2">
-              <h1 className="font-semibold text-lg">{data.title}</h1>
+              <h1 className="font-semibold text-base md:text-lg">
+                {data.title}
+              </h1>
               <button
-                className={`rounded-2xl py-1 px-4 ${
+                className={`rounded-2xl py-1 px-4 text-xs ${
                   data.status === "Open" ? "bg-green-200" : "bg-amber-200"
                 }`}
               >
                 {data.status}
               </button>
             </div>
-            <p className="p-2">{data.description}</p>
-            <div className="flex justify-between p-2">
-              <div className="flex items-center">
-                <p className="text-xs font-bold">{data.id}</p>
-                <p className="ml-4 text-m">{data.priority}</p>
+            <p className="p-2 text-sm text-gray-700">{data.description}</p>
+            <div className="flex justify-between px-2 text-xs text-gray-600">
+              <div className="flex items-center gap-4">
+                <p className="font-bold">{data.id}</p>
+                <p>{data.priority}</p>
               </div>
-              <div className="flex items-center">
-                <p className="text-xs">{data.customer}</p>
-                <p className="ml-4 text-xs">
-                  <span>🕧</span> {data.createdAt}
+              <div className="flex items-center gap-4">
+                <p>{data.customer}</p>
+                <p className="flex items-center gap-1">
+                  <FaRegCalendarAlt className="text-gray-500 text-sm" />{" "}
+                  {data.createdAt}
                 </p>
               </div>
             </div>
           </div>
         </div>
       ))}
-
-      {/* <div className="h-[150px]  bg-gray-100">
-        <div className="flex justify-between p-2">
-          <h1 className="font-semibold text-lg">Login Issue</h1>
-          <button className="rounded-2xl py-1 px-4 bg-green-300">Open</button>
-        </div>
-        <p className="p-2">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
-          ipsam tempore nemo? Totam, a at.
-        </p>
-        <div className="flex justify-between p-2">
-          <div className="flex">
-            <p>#1001</p>
-            <p className="ml-4">High Priority</p>
-          </div>
-          <div className="flex">
-            <p>John Doe</p>
-            <p className="ml-4">
-              <span>🕧</span> 09/25/2025
-            </p>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
